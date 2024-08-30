@@ -1401,28 +1401,33 @@
 
 
     }
-    // Hパターン　？　。補正
-    function hanyuHosei(hanyu, hAnswer) {
+     // Hパターン　？　。補正
+     function hanyuHosei(hanyu, hAnswer) {
+      console.log(`hanyu=${hanyu}`);
+      console.log(`hAnswer=${hAnswer}`);
       let whanyu = hanyu;
 
       let whAnswer = hAnswer;
-      if (hanyu.charAt(hanyu.length - 1) === constWenhao ||
-        hanyu.charAt(hanyu.length - 1) === constWenhao2 ||
-        hanyu.charAt(hanyu.length - 1) === constKuten) {
-        whanyu = hanyu.slice(0, hanyu.length - 1);
-      }
-      let whanyu2 = whanyu.split(cstKanma);
-      whanyu = whanyu2.join('');
+      
+      let whanyu1 = whanyu.split(cstKanma);
+      let whanyu2 = whanyu1.join('');
+      
+      let whanyu3 = whanyu2.split(constWenhao);
+      let whanyu4 = whanyu3.join('');
+      
+      let whanyu5 = whanyu4.split(constKuten);
+      whanyu = whanyu5.join('');
       //
-      if (hAnswer.charAt(hAnswer.length - 1) === constWenhao ||
-        hAnswer.charAt(hAnswer.length - 1) === constWenhao2 ||
-        hAnswer.charAt(hAnswer.length - 1) === constKuten) {
-        whAnswer = hAnswer.slice(0, hAnswer.length - 1);
-      }
-      // console.log(`hanyu=${hanyu}`);
-      // console.log(`whanyu=${whanyu}`);
-      // console.log(`hAnswer=${hAnswer}`);
-      // console.log(`whAnswer=${whAnswer}`);
+      let whAnswer1 = whAnswer.split(cstKanma);
+      let whAnswer2 = whAnswer1.join('');
+      
+      let whAnswer3 = whAnswer2.split(constWenhao);
+      let whAnswer4 = whAnswer3.join('');
+      
+      let whAnswer5 = whAnswer4.split(constKuten);
+      whAnswer = whAnswer5.join('');
+
+     
       return [whanyu, whAnswer];
 
 
